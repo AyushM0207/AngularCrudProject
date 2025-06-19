@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="alert alert-primary d-flex align-items-center" role="alert">
+    <h3 class="text-success">{{sucMsg}}</h3>
+  </div>
+  <form name="form"  #employeeForm="ngForm" (ngSubmit)= "employeeForm.form.valid && onSubmit()">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="fullname" #fullname="ngModel" [(ngModel)]='employee.fullname' required minlength="4" maxlength="10" >
+        @if(employeeForm.submitted && fullname.errors){
+          <div class="invalid.feedback">
+            @if(fullname.errors['required']){
+              <div>
+                UserName is required
+              </div>
+            }
+          </div>
+        }
+
+        
+      </div>
+      <div>
+        <label for="email">Salary</label>
+        <input type="salary" id="salary" required [(ngModel)]="employee.salary" name="email">
+      </div>
+      <div>
+        <label for="mobile">Contact</label>
+        <input type="text" id="mobile" required [(ngModel)]="employee.mobile" name="mobile">
+      </div>
+      <div class="mt-5">
+      <input type="submit" class="btn btn-success">
+      <input type="reset" value="reset" class="btn btn-danger float-end mt-2">
+    </div>
+    </form>
+
+</div>

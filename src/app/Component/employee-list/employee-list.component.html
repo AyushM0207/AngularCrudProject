@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Employee-List</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th class="table-dark" scope="col">Id</th>
+            <th class="table-dark" scope="col">Name</th>
+            <th class="table-dark" scope="col">Salary</th>
+            <th class="table-dark" scope="col">Contact</th>
+            <th class="table-dark" scope="col">Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employee">
+            <td class="table-primary">{{emp.empId}}</td>
+            <td class="table-secondary">{{emp.empName}}</td>
+            <td class="table-success">{{emp.empSalary}}</td>
+            <td class="table-info">{{emp.mobile}}</td>
+              <td class="table-danger">
+                <button routerLink="/employee/edit/{{emp.empId}}">Edit</button> &nbsp;&nbsp;
+                <button routerLink="/employee/profile/{{emp.empId}}">Profile</button>&nbsp;&nbsp;
+                <button routerLink="employee/delete/{{emp.empId}}">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
